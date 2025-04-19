@@ -8,13 +8,6 @@ import java.sql.DriverManager;
  * 功能：负责创建数据库连接
  */
 public class DBUntil {
-    /**
-     * 测试数据库连接
-     * @param args
-     */
-    public static void main(String[] args) {
-                DBUntil dbUntil = new DBUntil("root","","db_student");
-    }
 
     private String account;
     private String password;
