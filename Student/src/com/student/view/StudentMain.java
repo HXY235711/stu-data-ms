@@ -10,7 +10,7 @@ public class StudentMain {
         //打开主程序,连接数据ku
 
         //连接数据库
-        DBUntil dbUntil = new DBUntil("root","","db_student");
+        DBUntil dbUntil = new DBUntil("root","123456","db_student");
         LoginView loginView = new LoginView();//打开登录窗口
 
     }

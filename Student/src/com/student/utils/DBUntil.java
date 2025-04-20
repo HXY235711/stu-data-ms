@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * 功能：负责创建数据库连接
+ * 功能：负责创建数据库连接第四集10.30
  */
 public class DBUntil {
 
@@ -13,7 +13,7 @@ public class DBUntil {
     private String password;
     private String db;
     /**
-     * 数据库账号与密码和数据库名称
+     * 数据库账号与密码和数据库名称第四集11.50
      * @param account
      * @param password
      */
