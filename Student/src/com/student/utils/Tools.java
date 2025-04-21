@@ -21,4 +21,13 @@ public class Tools {
         jFrame.setBounds(x,y,width,height);
 
     }
+
+    /**
+     * 弹窗封装的方法
+     * @param message
+     */
+    public static void showMessage(String message) {
+        JOptionPane.showMessageDialog(null, message,"提示消息",JOptionPane.WARNING_MESSAGE);
+        //JOptionPane.showMessageDialog(null,message);
+    }
 }
