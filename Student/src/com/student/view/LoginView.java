@@ -6,8 +6,8 @@ import com.student.utils.Tools;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.util.UUID;
 
 import static java.awt.SystemColor.text;
 
@@ -15,6 +15,8 @@ public class LoginView {
     private JFrame frame;
     private final int WIDTH = 500;
     private final int HEIGHT = 280;
+
+    public static String uuid;
 
     public static String pow="0";//用户
     /**
@@ -28,6 +30,7 @@ public class LoginView {
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         Tools.setPos(frame,WIDTH,HEIGHT);
         frame.validate();
 
@@ -138,7 +141,29 @@ public class LoginView {
                     }
                     else{
                         LoginView.pow = admin.getPow();//给一下权限的值
-                        Tools.showMessage("登录成功");
+
+                        //判断账号是否已经登录
+
+                        uuid = UUID.randomUUID().toString().replace("-","").toString();
+                        if(admin.getSta().equals("0")){
+                            //没有在线
+
+                            Tools.showMessage("登录成功");
+                        }
+                        else{
+                            //在线
+                            int a = JOptionPane.showConfirmDialog(null,"当前账号已经登录，是否继续登录","登录消息",JOptionPane.YES_NO_OPTION);
+                            //0代表确认，1代表否
+                            if(a == 0){
+                                //确认
+                                //把当前生成的UUID更改账号
+                                AdminDao.update(account,uuid);
+                                Tools.showMessage("登录成功");
+                            }
+
+
+                        }
+
 
                     }
                 }
@@ -152,6 +177,33 @@ public class LoginView {
         register.setBounds(10,210,100,40);
         register.setFont(new Font("宋体",Font.PLAIN,11 ));
         register.setForeground(new Color(54,5,79));
+        register.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                RegisterView window = new RegisterView();
+                window.frame.setVisible(true);
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
 
         //只能有一个账号进行登录，额外登录会挤掉下一个账号
