@@ -122,9 +122,11 @@ public class RegisterView {
 		textField_3.setPreferredSize(new Dimension(15, 28));
 
 		
-		JButton btnNewButton = new JButton("注册");
+		JButton btnNewButton = new JButton("注       册");
 		btnNewButton.setBounds(23, 166, 328, 41);
 		panel.add(btnNewButton);
+		btnNewButton.setFont(new Font("宋体",Font.BOLD,18));
+		btnNewButton.setForeground(new Color(244,170,128));
 		
 		frame.getContentPane().add(lblNewLabel);
 
